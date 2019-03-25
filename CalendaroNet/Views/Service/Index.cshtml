@@ -1,0 +1,54 @@
+@model ServiceListViewModel
+@using CalendaroNet.Models.Services
+
+@{
+    ViewData["Title"] = "Manage your services";
+}
+
+  <form asp-controller="Service" asp-action="AddService" method="GET">
+                    <button style="margin-top:20px" type="submit" class="btn btn-sm btn-success d-none d-md-inline-block">
+                        Dodaj usługę
+                    </button>
+    </form>
+<div class="panel panel-default service-panel" style="margin-top:7px">
+  <div class="panel-heading">@ViewData["Title"]</div>
+
+  <table class="table table-hover">
+      <thead>
+          <tr>
+              <td>Name</td>
+              <td>Czas</td>
+              <td>Opis</td>
+              <td>Cena</td>
+              <td>Opcje</td>
+          </tr>
+      </thead>
+
+      @foreach (var item in Model.Services)
+      {
+          <tr>
+
+              <td>@item.Name</td>
+              <td>@item.TimeRequiredInMinutes</td>
+              <td>@item.Description</td>
+              <td>@item.PriceInPln</td>
+              <td>
+                  <div class="in-line">
+                <form asp-controller="Service"asp-action="DeleteService" asp-route-id="@item.Id">
+                    <button type="submit" class="btn btn-sm btn-danger ">
+                        Usuń
+                    </button>
+                </form>
+                <form asp-controller="Service"asp-action="EditService" method="Get" asp-route-id="@item.Id">
+                    <button type="submit" class="btn btn-sm btn-warning">
+                        Edytuj
+                    </button>
+                </form>
+                </div>
+            </td>
+
+          </tr>
+      }
+  </table>
+
+</div>

@@ -1,0 +1,63 @@
+@model EmployeesListViewModel
+@using CalendaroNet.Models.Employees
+@using Humanizer
+
+
+@{
+    ViewData["Title"] = "Zarządzaj użytkownikami";
+}
+    <form asp-controller="Employee" asp-action="AddEmployee" method="GET">
+        <button style="margin-top:20px;"type="submit" class="btn btn-sm btn-success d-none d-md-inline-block">
+            Dodaj pracownika
+        </button>
+    </form>
+
+    <div class="panel panel-default service-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Imię</td>
+                <td>Naziwsko</td>
+                <td>Data Zatrudnienia</td>
+                <td>Koniec umowy</td>
+                <td>Pensja</td>
+
+                <td>Opcje</td>
+
+            </tr>
+        </thead>
+
+        @foreach (var employee in Model.CompanyEmployees)
+        {
+            <tr>
+
+                <td>@employee.FirstName</td>
+                <td>@employee.Surname</td>
+                <td>@employee.EmploymentDate.ToString("dd MMMMMMM yyyy")</td>
+                <td>@employee.ContractEndDate.Value.ToString("dd MMMMMMM yyyy")</td>
+                <td>@employee.BaseMonthSalary zł</td>
+                <td>
+                    <div class="row">
+                        <div>
+                            <form asp-controller="Employee"asp-action="DeleteEmployee" asp-route-id="@employee.Id">
+                                <button type="submit" class="btn btn-sm btn-danger d-none">
+                                    Usuń
+                                </button>
+                            </form>
+                        </div>
+                        <div>
+                            <form asp-controller="Employee"asp-action="EditEmployee" method="Get" asp-route-id="@employee.Id">
+                                <button type="submit" class="btn btn-sm btn-warning d-none">
+                                    Edytuj
+                                </button>
+                            </form>
+                        </div>
+                    </div>                   
+                </td>
+            </tr>
+        }
+    </table>
+
+    </div>

@@ -1,0 +1,96 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.carousel .item img{
+    max-height: 1080px !important;
+}
+
+.nav a,button{
+    font-style: bold;
+    text-align: center; 
+}
+.nav button{
+    margin-top: 9px;
+}
+.mainavbar{
+    margin-top: 4px;
+    color: #ffffff !important;
+    font-size: 1.3em !important;
+    font-style: bold;
+    text-align: center; 
+}
+
+.lightercolor{
+
+        background-color: rgb(8, 89, 147) !important;
+}
+
+.navdropdown{
+    margin-top: 2px;
+    padding: 15px;
+    color: rgb(79, 155, 44);
+
+}
+
+.dropcolor{
+    background-color: rgb(8, 89, 147) !important;
+}
+.dropcolor i{
+    float: right;
+}
+
+.navfontandcolor{
+    color: #ffffff !important;
+    font-size: 1.3em !important;
+}
+.navfontandcolor a{
+    color: #ffffff !important;
+    font-size: 1.0em !important;
+}
+
+.onclickstyle{
+    background: rgb(8, 89, 147) !important ;
+      box-shadow:none !important;
+      border: none !important;
+    
+}
+.onclickstyle{
+    box-shadow:none !important;
+    border: none !important;
+}
+

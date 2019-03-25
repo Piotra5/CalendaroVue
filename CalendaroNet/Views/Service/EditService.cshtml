@@ -1,0 +1,42 @@
+@model ServiceViewModel
+@using CalendaroNet.Models.Services
+@{
+    ViewData["Title"] = "Add Service";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div>
+    <div>
+        <form  asp-action="AddService" method="POST">
+            <h4>Edit </h4> 
+            <h4> service.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label>Nazwa</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Opis</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Wymagany czas</label>
+                <input asp-for="TimeRequiredInMinutes" class="form-control" />
+                <span asp-validation-for="TimeRequiredInMinutes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Cena w zł</label>
+                <input asp-for="PriceInPln" class="form-control" />
+                <span asp-validation-for="PriceInPln" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-default">Add</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
